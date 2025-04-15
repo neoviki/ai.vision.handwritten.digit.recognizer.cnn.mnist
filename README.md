@@ -20,3 +20,14 @@ Make sure to install the following Python packages before running the app
     2. Pillow
     3. torchvision
     4. opencv-python
+
+## Reference
+
+@article{lecun2010mnist,
+         title={MNIST handwritten digit database},
+         author={LeCun, Yann and Cortes, Corinna and Burges, CJ},
+         journal={ATT Labs [Online]. Available: http://yann.lecun.com/exdb/mnist},
+         volume={2},
+         year={2010}
+}
+

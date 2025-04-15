@@ -21,6 +21,18 @@ Make sure to install the following Python packages before running the app
     3. torchvision
     4. opencv-python
 
+## Install Dependencies 
+```bash
+chmod +x install.dependencies.sh
+./install.dependencies.sh
+```
+
+## Run the application
+```bash
+chmod +x run.app.sh
+./run.app.sh
+```
+
 ## Reference
 
 @article{lecun2010mnist,

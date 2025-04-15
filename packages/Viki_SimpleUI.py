@@ -23,6 +23,12 @@ from tkinter import filedialog
 from tkinter import PhotoImage
 from PIL import ImageTk, Image
 
+#Compatibility handling
+try:
+    resample = Image.Resampling.LANCZOS
+except AttributeError:
+    resample = Image.ANTIALIAS  # For Pillow <10
+
 ctr = 0
 
 open_path = "../sample_images"
@@ -73,7 +79,7 @@ def browse_image_callback(gui, canvas, fname):
     new_width = 200
     percent_change_in_width = float(float(new_width) / float(image_width))
     new_height = int(image_height * percent_change_in_width)
-    image = image.resize((new_width, new_height), Image.ANTIALIAS)
+    image = image.resize((new_width, new_height), resample)
     photo = ImageTk.PhotoImage(image)
     canvas.delete("all")
     canvas.image = photo

@@ -1,3 +1,9 @@
+'''
+Handwritten Digit Classifier
+
+Author  : Viki (a) V Natarajan
+Contact : www.viki.design
+'''
 import sys
 sys.path.append('../packages')
 

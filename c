@@ -1,5 +1,6 @@
 ~/git.init.neoviki 2>/dev/null
 /c/Users/viki/git.init.neoviki 2>/dev/null
+./clean.sh
 git add .
 git commit -m "auto"
 git pull

@@ -33,7 +33,7 @@ chmod +x run.app.sh
 ./run.app.sh
 ```
 
-## Reference
+## Reference 1
 
 @article{lecun2010mnist,
          title={MNIST handwritten digit database},
@@ -42,4 +42,8 @@ chmod +x run.app.sh
          volume={2},
          year={2010}
 }
+
+## Reference 2:  Tkinter Color Chart 
+
+https://cs111.wellesley.edu/archive/cs111_fall14/public_html/labs/lab12/tkintercolor.html
 

@@ -19,31 +19,40 @@ from lib_logger import *
 
 log = logger()
 
+import os
+from torchvision import datasets, transforms
+
 def Download_MNIST_TrainingData(path):
-    print(log._st+ "DOWNLOADING MNIST TRAINING DATA")
-    t = transforms
-    tf = t.Compose([t.ToTensor(), t.Normalize((0.5,), (0.5,))])
-    data_object = datasets.MNIST(path, train=True, download=True, transform=tf)
-    print(log._ed+ "DOWNLOADING MNIST TRAINING DATA")
+    print(log._st + "CHECKING MNIST TRAINING DATA")
+    processed_file = os.path.join(path, 'MNIST', 'processed', 'training.pt')
+    if os.path.exists(processed_file):
+        print(log._ed + "MNIST TRAINING DATA ALREADY EXISTS")
+        download = False
+    else:
+        print(log._st + "TRAINING DATA NOT FOUND, DOWNLOADING...")
+        download = True
+
+    tf = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+    data_object = datasets.MNIST(path, train=True, download=download, transform=tf)
+    print(log._ed + "MNIST TRAINING DATA READY")
     return data_object
 
 
 def Download_MNIST_TestData(path):
-    print(log._st+ "DOWNLOADING MNIST TEST DATA")
-    t = transforms
+    print(log._st + "CHECKING MNIST TEST DATA")
+    processed_file = os.path.join(path, 'MNIST', 'processed', 'test.pt')
+    if os.path.exists(processed_file):
+        print(log._ed + "MNIST TEST DATA ALREADY EXISTS")
+        download = False
+    else:
+        print(log._st + "TEST DATA NOT FOUND, DOWNLOADING...")
+        download = True
 
-    '''
-        Convert Image from range [0, 1] to  range [-1 to 1]
-
-        image = (image - n_mean)/n_std
-    '''
     n_mean = 0.5
     n_std  = 0.5
-
-
-    tf = t.Compose([t.ToTensor(), t.Normalize((n_mean,), (n_std,))])
-    data_object  = datasets.MNIST(path, train=False, download=True, transform=tf)
-    print(log._ed+ "DOWNLOADING MNIST TEST DATA")
+    tf = transforms.Compose([transforms.ToTensor(), transforms.Normalize((n_mean,), (n_std,))])
+    data_object = datasets.MNIST(path, train=False, download=download, transform=tf)
+    print(log._ed + "MNIST TEST DATA READY")
     return data_object
 
 def Load_MNIST_Data(data_object, batch_size):

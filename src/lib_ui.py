@@ -3,7 +3,7 @@
 
 Author:
 
-V Natarajan (a) Viki
+Vignesh (a) Viki
 www.viki.design
 '''
 
@@ -24,7 +24,6 @@ import sys
 log = logger()
 
 
-# ---------------- COLORS ----------------
 color_bg = "#ffffff"          # main window / frame background
 color_fg = "#000000"          # normal text color
 
@@ -38,7 +37,6 @@ color_active_bg = "#e0e0e0"   # button active background
 color_active_fg = "#000000"   # button active text
 
 
-# ---------------- PIL COMPATIBILITY ----------------
 try:
     resample = Image.Resampling.LANCZOS  # Pillow >= 10.0
 except AttributeError:
